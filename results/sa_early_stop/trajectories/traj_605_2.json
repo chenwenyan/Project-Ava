@@ -1,0 +1,206 @@
+{
+  "video_id": 605,
+  "question_id": 2,
+  "gt": "D",
+  "seconds": 193.92,
+  "status": "ok",
+  "meta": {
+    "num_nodes": 13,
+    "self_consistency_num": 8,
+    "max_rounds": 8,
+    "stability_rounds": 4,
+    "early_stop_enabled": false,
+    "executed_rounds": 8,
+    "early_stopped": false,
+    "total_responses": 104,
+    "full_budget_responses": 104,
+    "saved_responses": 0,
+    "saving_ratio": 0.0,
+    "rounds": [
+      {
+        "round": 1,
+        "responses_so_far": 13,
+        "signature": [
+          [
+            "Root",
+            "SA"
+          ],
+          "D",
+          null,
+          null
+        ],
+        "stable_count": 1,
+        "top1_path": [
+          "Root",
+          "SA"
+        ],
+        "top1_answer": "D",
+        "top1_score": 0.3,
+        "best_different_path": null,
+        "best_different_answer": null,
+        "best_different_score": null
+      },
+      {
+        "round": 2,
+        "responses_so_far": 26,
+        "signature": [
+          [
+            "Root",
+            "SA"
+          ],
+          "D",
+          null,
+          null
+        ],
+        "stable_count": 2,
+        "top1_path": [
+          "Root",
+          "SA"
+        ],
+        "top1_answer": "D",
+        "top1_score": 0.8080646574497223,
+        "best_different_path": null,
+        "best_different_answer": null,
+        "best_different_score": null
+      },
+      {
+        "round": 3,
+        "responses_so_far": 39,
+        "signature": [
+          [
+            "Root",
+            "SA"
+          ],
+          "D",
+          null,
+          null
+        ],
+        "stable_count": 3,
+        "top1_path": [
+          "Root",
+          "SA"
+        ],
+        "top1_answer": "D",
+        "top1_score": 0.8156806250413258,
+        "best_different_path": null,
+        "best_different_answer": null,
+        "best_different_score": null
+      },
+      {
+        "round": 4,
+        "responses_so_far": 52,
+        "signature": [
+          [
+            "Root",
+            "SA"
+          ],
+          "D",
+          null,
+          null
+        ],
+        "stable_count": 4,
+        "top1_path": [
+          "Root",
+          "SA"
+        ],
+        "top1_answer": "D",
+        "top1_score": 0.8216183304786682,
+        "best_different_path": null,
+        "best_different_answer": null,
+        "best_different_score": null
+      },
+      {
+        "round": 5,
+        "responses_so_far": 65,
+        "signature": [
+          [
+            "Root",
+            "SA"
+          ],
+          "D",
+          null,
+          null
+        ],
+        "stable_count": 5,
+        "top1_path": [
+          "Root",
+          "SA"
+        ],
+        "top1_answer": "D",
+        "top1_score": 0.8281283009052276,
+        "best_different_path": null,
+        "best_different_answer": null,
+        "best_different_score": null
+      },
+      {
+        "round": 6,
+        "responses_so_far": 78,
+        "signature": [
+          [
+            "Root",
+            "SA"
+          ],
+          "D",
+          null,
+          null
+        ],
+        "stable_count": 6,
+        "top1_path": [
+          "Root",
+          "SA"
+        ],
+        "top1_answer": "D",
+        "top1_score": 0.825598019361496,
+        "best_different_path": null,
+        "best_different_answer": null,
+        "best_different_score": null
+      },
+      {
+        "round": 7,
+        "responses_so_far": 91,
+        "signature": [
+          [
+            "Root",
+            "SA"
+          ],
+          "D",
+          null,
+          null
+        ],
+        "stable_count": 7,
+        "top1_path": [
+          "Root",
+          "SA"
+        ],
+        "top1_answer": "D",
+        "top1_score": 0.8200464427471159,
+        "best_different_path": null,
+        "best_different_answer": null,
+        "best_different_score": null
+      },
+      {
+        "round": 8,
+        "responses_so_far": 104,
+        "signature": [
+          [
+            "Root",
+            "SA"
+          ],
+          "D",
+          null,
+          null
+        ],
+        "stable_count": 8,
+        "top1_path": [
+          "Root",
+          "SA"
+        ],
+        "top1_answer": "D",
+        "top1_score": 0.8170711480081081,
+        "best_different_path": null,
+        "best_different_answer": null,
+        "best_different_score": null
+      }
+    ]
+  }
+}

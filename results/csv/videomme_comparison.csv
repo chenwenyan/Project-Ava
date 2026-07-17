@@ -1,0 +1,13 @@
+stage,metric,default,keyframe-direct,keyframe-merge
+index,events,6568,12586,5721
+index,nodes,17815,32070,15292
+sa,mean_seconds,329.2,231.3,317.0
+sa,accuracy,0.5833,0.5667,0.5333
+sa,correct,35,34,32
+sa,scored,60,60,60
+ca,mean_seconds,85.7,73.6,90.8
+ca,accuracy,0.2833,0.35,0.3
+ca,correct,17,21,18
+ca,scored,60,60,60
+online,mean_seconds,414.9,304.9,407.8
+online,total_seconds,24892.7,18296.2,24470.8

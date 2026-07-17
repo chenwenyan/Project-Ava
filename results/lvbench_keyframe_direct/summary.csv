@@ -1,0 +1,4 @@
+stage,records,successful,failed,total_seconds,mean_seconds,correct,total_questions,accuracy,total_nodes
+graph,20,20,0,24408.59,1627.24,,,,69571
+sa,60,60,0,10574.24,176.24,33,60,0.55,
+ca,60,60,0,4124.72,68.75,22,60,0.3667,

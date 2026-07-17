@@ -215,8 +215,13 @@ def generate_sa_self_consistency_result(
 
 def calculate_sa_score(
     node_results: list,
+    scorer: "BERTScorer" = None,
 ):
-    scorer = BERTScorer(model_type="microsoft/deberta-xlarge-mnli", lang="en")
+    # Allow a pre-built scorer to be reused across many calls (e.g. the
+    # progressive early-stopping loop re-scores every round). Building a
+    # BERTScorer loads deberta-xlarge-mnli, so we do it once when not supplied.
+    if scorer is None:
+        scorer = BERTScorer(model_type="microsoft/deberta-xlarge-mnli", lang="en")
     
     # calculate the score of each node
     for i, node_result in enumerate(node_results):
@@ -293,6 +298,167 @@ def choose_best_sa_answer(
     )
 
     return sorted_score_results
+
+
+def _sa_round_signature(ranked_nodes: list):
+    """Derive the stability signature from ranked SA nodes.
+
+    Returns (signature, diagnostics). `ranked_nodes` is the output of
+    choose_best_sa_answer (highest final_score first). The signature is:
+        (top1 node path, top1 answer, best-different path|None, best-different answer|None)
+    where "best-different" is the highest-scoring node whose final answer
+    differs from top1's.
+    """
+    top1 = ranked_nodes[0]
+    top1_answer = list(top1["final_score"].keys())[0]
+    top1_score = list(top1["final_score"].values())[0]
+    top1_path = top1["path"]
+
+    best_diff = None
+    for node in ranked_nodes[1:]:
+        answer = list(node["final_score"].keys())[0]
+        if answer != top1_answer:
+            best_diff = node
+            break
+
+    if best_diff is not None:
+        bd_answer = list(best_diff["final_score"].keys())[0]
+        bd_score = list(best_diff["final_score"].values())[0]
+        bd_path = best_diff["path"]
+    else:
+        bd_answer, bd_score, bd_path = None, None, None
+
+    signature = (
+        tuple(top1_path),
+        top1_answer,
+        tuple(bd_path) if bd_path is not None else None,
+        bd_answer,
+    )
+    diagnostics = {
+        "top1_path": top1_path,
+        "top1_answer": top1_answer,
+        "top1_score": top1_score,
+        "best_different_path": bd_path,
+        "best_different_answer": bd_answer,
+        "best_different_score": bd_score,
+    }
+    return signature, diagnostics
+
+
+def generate_sa_self_consistency_result_progressive(
+    tree_information: list,
+    llm: BaseLanguageModel,
+    self_consistency_num: int = 8,
+    max_rounds: int = 8,
+    stability_rounds: int = 4,
+    early_stop: bool = True,
+    scorer: "BERTScorer" = None,
+):
+    """Progressive SA self-consistency with signature-based early stopping.
+
+    Instead of generating `self_consistency_num` responses per node up front
+    (num_nodes * self_consistency_num in one batch), this runs round by round:
+      * each round generates exactly ONE response per SA node, merged into a
+        single batch (reusing generate_sa_self_consistency_result with
+        self_consistency_num=1);
+      * responses accumulate across rounds per node;
+      * after each round the accumulated responses are re-scored with the
+        existing calculate_sa_score / choose_best_sa_answer (no scoring logic
+        is duplicated here);
+      * a stability signature is computed each round. If it is unchanged for
+        `stability_rounds` consecutive rounds, generation stops early.
+
+    No node pruning is performed — every node is generated for every executed
+    round — so this isolates the effect of early stopping alone.
+
+    Returns (tree_information, meta):
+      * tree_information: each node carries the final accumulated `responses`
+        (same shape as generate_sa_self_consistency_result), so downstream
+        scoring / CA selection is unchanged.
+      * meta: per-round diagnostics, executed rounds, total responses, whether
+        it stopped early, and the saving ratio vs the fixed full budget.
+    """
+    if scorer is None:
+        scorer = BERTScorer(model_type="microsoft/deberta-xlarge-mnli", lang="en")
+
+    num_nodes = len(tree_information)
+    # Lightweight per-round input; only "input_prompt" is read by the reused fn.
+    round_inputs = [{"input_prompt": node["input_prompt"]} for node in tree_information]
+    accumulated = [[] for _ in range(num_nodes)]
+
+    prev_signature = None
+    stable_count = 0
+    rounds_log = []
+    executed_rounds = 0
+    early_stopped = False
+
+    max_rounds = min(max_rounds, self_consistency_num)
+
+    for round_idx in range(1, max_rounds + 1):
+        executed_rounds = round_idx
+
+        # One response per node, merged into a single batch (reuse existing fn).
+        round_batch = [{"input_prompt": item["input_prompt"]} for item in round_inputs]
+        generate_sa_self_consistency_result(round_batch, llm, self_consistency_num=1)
+        for i in range(num_nodes):
+            accumulated[i].extend(round_batch[i]["responses"])
+
+        # Re-score accumulated responses with the existing scoring logic.
+        scoring_input = [
+            {"path": node["path"], "responses": list(accumulated[i])}
+            for i, node in enumerate(tree_information)
+        ]
+        scored = calculate_sa_score(scoring_input, scorer=scorer)
+        ranked = choose_best_sa_answer(scored)
+
+        signature, diag = _sa_round_signature(ranked)
+
+        if signature == prev_signature:
+            stable_count += 1
+        else:
+            stable_count = 1
+        prev_signature = signature
+
+        responses_so_far = sum(len(r) for r in accumulated)
+        rounds_log.append({
+            "round": round_idx,
+            "responses_so_far": responses_so_far,
+            "signature": [
+                list(signature[0]),
+                signature[1],
+                list(signature[2]) if signature[2] is not None else None,
+                signature[3],
+            ],
+            "stable_count": stable_count,
+            **diag,
+        })
+
+        if early_stop and stable_count >= stability_rounds:
+            early_stopped = True
+            break
+
+    # Attach final accumulated responses (same shape as the non-progressive fn).
+    for i, node in enumerate(tree_information):
+        node["responses"] = accumulated[i]
+
+    total_responses = sum(len(r) for r in accumulated)
+    full_budget = num_nodes * self_consistency_num
+    meta = {
+        "num_nodes": num_nodes,
+        "self_consistency_num": self_consistency_num,
+        "max_rounds": max_rounds,
+        "stability_rounds": stability_rounds,
+        "early_stop_enabled": early_stop,
+        "executed_rounds": executed_rounds,
+        "early_stopped": early_stopped,
+        "total_responses": total_responses,
+        "full_budget_responses": full_budget,
+        "saved_responses": full_budget - total_responses,
+        "saving_ratio": (full_budget - total_responses) / full_budget if full_budget else 0.0,
+        "rounds": rounds_log,
+    }
+    return tree_information, meta
+
 
 def generate_ca_self_consistency_result(
     query: str,

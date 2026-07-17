@@ -1,0 +1,33 @@
+[
+  {
+    "stage": "graph",
+    "records": 20,
+    "successful": 20,
+    "failed": 0,
+    "total_seconds": 10945.29,
+    "mean_seconds": 995.03,
+    "total_nodes": 35826
+  },
+  {
+    "stage": "sa",
+    "records": 60,
+    "successful": 60,
+    "failed": 0,
+    "total_seconds": 12751.21,
+    "mean_seconds": 212.52,
+    "correct": 32,
+    "total_questions": 60,
+    "accuracy": 0.5333
+  },
+  {
+    "stage": "ca",
+    "records": 60,
+    "successful": 60,
+    "failed": 0,
+    "total_seconds": 4744.73,
+    "mean_seconds": 79.08,
+    "correct": 10,
+    "total_questions": 60,
+    "accuracy": 0.1667
+  }
+]

@@ -1,0 +1,298 @@
+{
+  "video_id": 606,
+  "question_id": 1,
+  "gt": "A",
+  "seconds": 321.63,
+  "status": "ok",
+  "meta": {
+    "num_nodes": 13,
+    "self_consistency_num": 8,
+    "max_rounds": 8,
+    "stability_rounds": 4,
+    "early_stop_enabled": false,
+    "executed_rounds": 8,
+    "early_stopped": false,
+    "total_responses": 104,
+    "full_budget_responses": 104,
+    "saved_responses": 0,
+    "saving_ratio": 0.0,
+    "rounds": [
+      {
+        "round": 1,
+        "responses_so_far": 13,
+        "signature": [
+          [
+            "Root",
+            "SA"
+          ],
+          "C",
+          [
+            "Root",
+            "RQ",
+            "SA"
+          ],
+          "B"
+        ],
+        "stable_count": 1,
+        "top1_path": [
+          "Root",
+          "SA"
+        ],
+        "top1_answer": "C",
+        "top1_score": 0.3,
+        "best_different_path": [
+          "Root",
+          "RQ",
+          "SA"
+        ],
+        "best_different_answer": "B",
+        "best_different_score": 0.3
+      },
+      {
+        "round": 2,
+        "responses_so_far": 26,
+        "signature": [
+          [
+            "Root",
+            "RQ",
+            "SA"
+          ],
+          "B",
+          [
+            "Root",
+            "F",
+            "F",
+            "SA"
+          ],
+          "C"
+        ],
+        "stable_count": 1,
+        "top1_path": [
+          "Root",
+          "RQ",
+          "SA"
+        ],
+        "top1_answer": "B",
+        "top1_score": 0.8192567110061646,
+        "best_different_path": [
+          "Root",
+          "F",
+          "F",
+          "SA"
+        ],
+        "best_different_answer": "C",
+        "best_different_score": 0.7957315564155578
+      },
+      {
+        "round": 3,
+        "responses_so_far": 39,
+        "signature": [
+          [
+            "Root",
+            "RQ",
+            "F",
+            "SA"
+          ],
+          "C",
+          [
+            "Root",
+            "RQ",
+            "SA"
+          ],
+          "B"
+        ],
+        "stable_count": 1,
+        "top1_path": [
+          "Root",
+          "RQ",
+          "F",
+          "SA"
+        ],
+        "top1_answer": "C",
+        "top1_score": 0.7550402045249939,
+        "best_different_path": [
+          "Root",
+          "RQ",
+          "SA"
+        ],
+        "best_different_answer": "B",
+        "best_different_score": 0.7192567110061645
+      },
+      {
+        "round": 4,
+        "responses_so_far": 52,
+        "signature": [
+          [
+            "Root",
+            "F",
+            "B",
+            "SA"
+          ],
+          "C",
+          [
+            "Root",
+            "F",
+            "SA"
+          ],
+          "B"
+        ],
+        "stable_count": 1,
+        "top1_path": [
+          "Root",
+          "F",
+          "B",
+          "SA"
+        ],
+        "top1_answer": "C",
+        "top1_score": 0.7504403193791707,
+        "best_different_path": [
+          "Root",
+          "F",
+          "SA"
+        ],
+        "best_different_answer": "B",
+        "best_different_score": 0.6966630399227142
+      },
+      {
+        "round": 5,
+        "responses_so_far": 65,
+        "signature": [
+          [
+            "Root",
+            "B",
+            "F",
+            "SA"
+          ],
+          "C",
+          [
+            "Root",
+            "F",
+            "SA"
+          ],
+          "B"
+        ],
+        "stable_count": 1,
+        "top1_path": [
+          "Root",
+          "B",
+          "F",
+          "SA"
+        ],
+        "top1_answer": "C",
+        "top1_score": 0.7536488974094391,
+        "best_different_path": [
+          "Root",
+          "F",
+          "SA"
+        ],
+        "best_different_answer": "B",
+        "best_different_score": 0.7241572239995002
+      },
+      {
+        "round": 6,
+        "responses_so_far": 78,
+        "signature": [
+          [
+            "Root",
+            "F",
+            "RQ",
+            "SA"
+          ],
+          "C",
+          [
+            "Root",
+            "B",
+            "SA"
+          ],
+          "B"
+        ],
+        "stable_count": 1,
+        "top1_path": [
+          "Root",
+          "F",
+          "RQ",
+          "SA"
+        ],
+        "top1_answer": "C",
+        "top1_score": 0.7533494460582733,
+        "best_different_path": [
+          "Root",
+          "B",
+          "SA"
+        ],
+        "best_different_answer": "B",
+        "best_different_score": 0.7279980647563934
+      },
+      {
+        "round": 7,
+        "responses_so_far": 91,
+        "signature": [
+          [
+            "Root",
+            "F",
+            "B",
+            "SA"
+          ],
+          "C",
+          [
+            "Root",
+            "F",
+            "SA"
+          ],
+          "B"
+        ],
+        "stable_count": 1,
+        "top1_path": [
+          "Root",
+          "F",
+          "B",
+          "SA"
+        ],
+        "top1_answer": "C",
+        "top1_score": 0.7439865056957518,
+        "best_different_path": [
+          "Root",
+          "F",
+          "SA"
+        ],
+        "best_different_answer": "B",
+        "best_different_score": 0.7010623094013759
+      },
+      {
+        "round": 8,
+        "responses_so_far": 104,
+        "signature": [
+          [
+            "Root",
+            "B",
+            "F",
+            "SA"
+          ],
+          "C",
+          [
+            "Root",
+            "F",
+            "SA"
+          ],
+          "B"
+        ],
+        "stable_count": 1,
+        "top1_path": [
+          "Root",
+          "B",
+          "F",
+          "SA"
+        ],
+        "top1_answer": "C",
+        "top1_score": 0.7237294832865396,
+        "best_different_path": [
+          "Root",
+          "F",
+          "SA"
+        ],
+        "best_different_answer": "B",
+        "best_different_score": 0.7104133894046147
+      }
+    ]
+  }
+}

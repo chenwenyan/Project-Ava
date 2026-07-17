@@ -1,0 +1,10 @@
+method,call_type,total_input_tokens,num_calls,mean_tokens_per_call
+Default,SA (LLM),14041984,1560,9001.3
+Default,Graph (VLM),11843120,7472,1585.0
+Default,CA (VLM),4254960,84,50654.3
+KF-Direct,SA (LLM),10794376,1560,6919.5
+KF-Direct,Graph (VLM),10189965,6429,1585.0
+KF-Direct,CA (VLM),2623832,92,28519.9
+KF-Merge,SA (LLM),13047520,1560,8363.8
+KF-Merge,Graph (VLM),10189965,6429,1585.0
+KF-Merge,CA (VLM),4652308,92,50568.6

@@ -2,6 +2,7 @@ from .operate import (
     extract_knowledge_graph,
     tree_search,
     generate_sa_self_consistency_result,
+    generate_sa_self_consistency_result_progressive,
     calculate_sa_score,
     choose_best_sa_answer,
     generate_ca_self_consistency_result,
@@ -61,6 +62,13 @@ class AVA:
     event_merge_algorithm: str = field(default="partition")
 
     embedding_batch_num: int = 64
+
+    # SA self-consistency progressive early stopping (opt-in; default keeps the
+    # original single-batch behaviour). See operate.generate_sa_self_consistency_result_progressive.
+    sa_progressive: bool = field(default=False)
+    sa_early_stop: bool = field(default=True)
+    sa_max_rounds: int = field(default=8)
+    sa_stability_rounds: int = field(default=4)
 
     # extension
     addon_params: dict = field(default_factory=dict)
@@ -199,12 +207,23 @@ class AVA:
             with open(os.path.join(question_folder, f"{question_id}", "SA_self_consistency_result.json"), "r") as f:
                 cleaned_self_consistency_results = json.load(f)
         else:
-            self_consistency_result = generate_sa_self_consistency_result(tree_information, self.llm_model)
+            if self.sa_progressive:
+                self_consistency_result, sa_early_stop_meta = generate_sa_self_consistency_result_progressive(
+                    tree_information,
+                    self.llm_model,
+                    max_rounds=self.sa_max_rounds,
+                    stability_rounds=self.sa_stability_rounds,
+                    early_stop=self.sa_early_stop,
+                )
+                with open(os.path.join(question_folder, f"{question_id}", "SA_early_stop_meta.json"), "w") as f:
+                    json.dump(sa_early_stop_meta, f, indent=4)
+            else:
+                self_consistency_result = generate_sa_self_consistency_result(tree_information, self.llm_model)
             cleaned_self_consistency_results = [
                 {k: v for k, v in item.items() if k not in {"structed_information", "input_prompt"}}
                 for item in self_consistency_result
             ]
-        
+
             # save self-consistency result
             with open(os.path.join(question_folder, f"{question_id}", "SA_self_consistency_result.json"), "w") as f:
                 json.dump(cleaned_self_consistency_results, f, indent=4)
