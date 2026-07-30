@@ -63,6 +63,11 @@ class AVA:
 
     embedding_batch_num: int = 64
 
+    # CA candidate-node budget (paper default 2 = top1 + best different-answer
+    # node). Values != 2 keep the same selection rule with a larger cap and use
+    # suffixed CA cache files so runs never mix.
+    ca_num_candidates: int = field(default=2)
+
     # SA self-consistency progressive early stopping (opt-in; default keeps the
     # original single-batch behaviour). See operate.generate_sa_self_consistency_result_progressive.
     sa_progressive: bool = field(default=False)
@@ -257,9 +262,13 @@ class AVA:
         with open(SA_score_result_file, "r") as f:
             SA_score_result = json.load(f)
         
+        # candidate budgets != 2 get suffixed cache files so they never collide
+        # with the default top-2 results
+        suffix = "" if self.ca_num_candidates == 2 else f"_top{self.ca_num_candidates}"
+
         # generate self-consistency result
-        if os.path.exists(os.path.join(question_folder, f"{question_id}", "CA_self_consistency_result.json")):
-            with open(os.path.join(question_folder, f"{question_id}", "CA_self_consistency_result.json"), "r") as f:
+        if os.path.exists(os.path.join(question_folder, f"{question_id}", f"CA_self_consistency_result{suffix}.json")):
+            with open(os.path.join(question_folder, f"{question_id}", f"CA_self_consistency_result{suffix}.json"), "r") as f:
                 ca_self_consistency_result = json.load(f)
         else:
             ca_self_consistency_result = generate_ca_self_consistency_result(
@@ -270,12 +279,13 @@ class AVA:
                 self_consistency_num=4,
                 max_frames=256,
                 max_retries=3,
+                num_candidates=self.ca_num_candidates,
             )
-            
+
             # save ca self-consistency result
-            with open(os.path.join(question_folder, f"{question_id}", "CA_self_consistency_result.json"), "w") as f:
+            with open(os.path.join(question_folder, f"{question_id}", f"CA_self_consistency_result{suffix}.json"), "w") as f:
                 json.dump(ca_self_consistency_result, f, indent=4)
-            
+
         # calculate ca nodes scores
         score_results = calculate_ca_score(ca_self_consistency_result)
         
@@ -285,12 +295,12 @@ class AVA:
         ]
         
         # save score results
-        with open(os.path.join(question_folder, f"{question_id}", "CA_score_result.json"), "w") as f:
+        with open(os.path.join(question_folder, f"{question_id}", f"CA_score_result{suffix}.json"), "w") as f:
             json.dump(cleaned_score_results, f, indent=4)
-            
+
         sorted_score_results = choose_best_ca_answer(cleaned_score_results)
-        
-        with open(os.path.join(question_folder, f"{question_id}", "sorted_CA_score_result.json"), "w") as f:
+
+        with open(os.path.join(question_folder, f"{question_id}", f"sorted_CA_score_result{suffix}.json"), "w") as f:
             json.dump(sorted_score_results, f, indent=4)
             
         final_ca_answer = list(sorted_score_results[0]["final_score"].keys())[0]

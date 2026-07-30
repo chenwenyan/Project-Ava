@@ -1,0 +1,142 @@
+{
+  "4": {
+    "video_id": 4,
+    "seconds": 1294.39,
+    "nodes": 2251,
+    "events": 930,
+    "status": "ok"
+  },
+  "5": {
+    "video_id": 5,
+    "seconds": 3134.86,
+    "nodes": 5443,
+    "events": 2586,
+    "status": "ok"
+  },
+  "12": {
+    "video_id": 12,
+    "seconds": 1253.63,
+    "nodes": 2602,
+    "events": 1020,
+    "status": "ok"
+  },
+  "14": {
+    "video_id": 14,
+    "seconds": 2561.8,
+    "nodes": 4121,
+    "events": 1948,
+    "status": "ok"
+  },
+  "15": {
+    "video_id": 15,
+    "seconds": 2288.95,
+    "nodes": 3632,
+    "events": 1502,
+    "status": "ok"
+  },
+  "18": {
+    "video_id": 18,
+    "seconds": 2230.53,
+    "nodes": 4295,
+    "events": 1772,
+    "status": "ok"
+  },
+  "28": {
+    "video_id": 28,
+    "seconds": 1267.64,
+    "nodes": 2481,
+    "events": 932,
+    "status": "ok"
+  },
+  "29": {
+    "video_id": 29,
+    "seconds": 5893.73,
+    "nodes": 14452,
+    "events": 4226,
+    "status": "ok"
+  },
+  "30": {
+    "video_id": 30,
+    "seconds": 783.01,
+    "nodes": 1651,
+    "events": 435,
+    "status": "ok"
+  },
+  "32": {
+    "video_id": 32,
+    "seconds": 632.97,
+    "nodes": 1625,
+    "events": 481,
+    "status": "ok"
+  },
+  "36": {
+    "video_id": 36,
+    "seconds": 1475.4,
+    "nodes": 4182,
+    "events": 1134,
+    "status": "ok"
+  },
+  "55": {
+    "video_id": 55,
+    "seconds": 1183.4,
+    "nodes": 2625,
+    "events": 979,
+    "status": "ok"
+  },
+  "65": {
+    "video_id": 65,
+    "seconds": 4451.28,
+    "nodes": 8178,
+    "events": 3504,
+    "status": "ok"
+  },
+  "70": {
+    "video_id": 70,
+    "seconds": 1459.47,
+    "nodes": 3868,
+    "events": 1512,
+    "status": "ok"
+  },
+  "72": {
+    "video_id": 72,
+    "seconds": 2891.02,
+    "nodes": 5948,
+    "events": 2508,
+    "status": "ok"
+  },
+  "76": {
+    "video_id": 76,
+    "seconds": 1460.56,
+    "nodes": 2703,
+    "events": 931,
+    "status": "ok"
+  },
+  "78": {
+    "video_id": 78,
+    "seconds": 983.28,
+    "nodes": 1855,
+    "events": 576,
+    "status": "ok"
+  },
+  "82": {
+    "video_id": 82,
+    "seconds": 1235.26,
+    "nodes": 2208,
+    "events": 898,
+    "status": "ok"
+  },
+  "87": {
+    "video_id": 87,
+    "seconds": 1122.9,
+    "nodes": 2641,
+    "events": 738,
+    "status": "ok"
+  },
+  "95": {
+    "video_id": 95,
+    "seconds": 1386.36,
+    "nodes": 2049,
+    "events": 649,
+    "status": "ok"
+  }
+}

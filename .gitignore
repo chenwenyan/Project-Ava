@@ -1,3 +1,10 @@
+/datas/*
+/results/csv/*
+/results/json/*
+/outputs/*
+/results/*/*.json
+/results/*/*.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

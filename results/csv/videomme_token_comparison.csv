@@ -1,0 +1,11 @@
+method,call_type,total_input_tokens,num_calls,mean_tokens_per_call
+Default,SA (LLM),64446296,6240,10327.9
+Default,CA (VLM),18787536,344,54614.9
+KF-Merge (7s),SA (LLM),60090064,6240,9629.8
+KF-Merge (7s),CA (VLM),20224904,352,57457.1
+KF-Direct (7s),SA (LLM),44763816,6240,7173.7
+KF-Direct (7s),CA (VLM),11507272,332,34660.5
+KF-Direct (5s),SA (LLM),45733776,6240,7329.1
+KF-Direct (5s),CA (VLM),10499432,348,30170.8
+KF-Direct (3s),SA (LLM),48122904,6240,7712.0
+KF-Direct (3s),CA (VLM),7588220,336,22584.0

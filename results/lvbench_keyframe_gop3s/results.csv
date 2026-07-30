@@ -1,0 +1,31 @@
+video_id,question_id,gt,sa_answer,sa_correct,sa_seconds,sa_status,ca_answer,ca_correct,ca_seconds,ca_status,graph_seconds,question
+4,0,B,B,1,218.36,ok,B,1,38.43,ok,0.0,What is the first word in the video? | (A) ENT | (B) NET | (C) TNE | (D) ETN
+4,1,C,B,0,205.35,ok,A,0,79.16,ok,0.0,How many birds are there flying at the beginning of the video? | (A) 6 | (B) 4 | (C) 5 | (D) 8
+4,2,C,D,0,176.15,ok,A,0,44.46,ok,0.0,How many doors have colored lights at 00:29? | (A) 2 | (B) 1 | (C) 3 | (D) 0
+5,0,B,C,0,209.59,ok,A,0,69.68,ok,0.0,Who gets the lollipop last? | (A) Frankenstein | (B) Zombie | (C) Vampire | (D) Dokkaebi
+5,1,D,A,0,152.97,ok,A,0,42.31,ok,0.0,Why doesn't the vampire want the lollipop? | (A) Because he thinks it is child who eat lollipop | (B) Because he can't eat lollipop | (C) Because he doesn't like lollipop | (D) Because he thinks the lollipop is dirty
+5,2,A,C,0,193.96,ok,C,0,76.59,ok,0.0,When is the school let out in the afternoon? | (A) 2:00 pm | (B) 3:30 pm | (C) 2:30 pm | (D) 3:00 pm
+12,0,D,D,1,154.84,ok,D,1,47.49,ok,0.0,What is the yellow semi-circular tool used by black clad engineers in cars? | (A) Wheel | (B) Bearing | (C) Engine | (D) Brake caliper
+12,1,A,A,1,204.47,ok,B,0,77.09,ok,0.0,What kind of Mercedes-Benz car is this black one? | (A) Maybach | (B) AMG GT | (C) C class | (D) E class
+12,2,A,A,1,166.9,ok,A,1,103.01,ok,0.0,What happens from 04:45-05:25? | (A) They replace the exhaust pipe of the car | (B) They replace the tail lights of the car | (C) They change tires on cars | (D) They replace the brake pads on the car
+14,0,D,B,0,153.21,ok,B,0,73.37,ok,0.0,Who are the main individuals featured in this video? | (A) Jane Mayer | (B) James Clapper | (C) Matt Apuzzo | (D) Donald John Trump
+14,1,D,D,1,163.4,ok,D,1,35.85,ok,0.0,What object is in front of the J. Edgar Hoover FBI Building sign? | (A) A mirror | (B) An industrial robot | (C) A camera | (D) A car
+14,2,B,B,1,182.09,ok,A,0,101.01,ok,0.0,"What does it mean when Trump raises his hand in front of a green helicopter with United States of America written on it? | (A) He's preparing to shake hands | (B) It's a gesture of politeness, indicating that people can start moving around | (C) He's pointing the way for the audience | (D) He's waving to greet someone"
+15,0,A,A,1,146.63,ok,A,1,73.36,ok,0.0,Which movie does the host parody in his first appearance? | (A) Barbie | (B) American Fiction | (C) Killers of the Flower Moon | (D) Oppenheim
+15,1,C,A,0,155.22,ok,A,0,86.77,ok,0.0,Which movie wins the most awards at the ceremony? | (A) Barbie | (B) Anatomy of a Fall | (C) Oppenheim | (D) Poor Things
+15,2,D,D,1,125.98,ok,B,0,82.74,ok,0.0,What is the reaction of the Best Supporting Actress when she finds out she wins? | (A) She shows indifference | (B) She appears excited | (C) She gives a faint smile | (D) She sheds tears of joy
+18,0,B,B,1,162.99,ok,A,0,77.99,ok,0.0,When does the little mermaid appear for the first time? | (A) 03:55 | (B) 03:40 | (C) 04:40 | (D) 02:40
+18,1,A,C,0,193.82,ok,C,0,57.6,ok,0.0,What happens from 17:16-17:40? | (A) They quarrel | (B) They kiss | (C) They talk nicely | (D) They hug
+18,2,B,C,0,146.41,ok,B,1,70.33,ok,0.0,What color is the prince's belt? | (A) Pink | (B) Red | (C) Black | (D) White
+28,0,D,D,1,158.47,ok,D,1,41.66,ok,0.0,What is the highest percentage of the country's respondents who experienced anger on the day previous to the survey? | (A) 48% | (B) 51% | (C) 53% | (D) 49%
+28,1,D,D,1,203.86,ok,D,1,56.1,ok,0.0,Which country do the travelers choose? | (A) Isreal | (B) Afghanistan | (C) Palestine | (D) Lebanon
+28,2,B,B,1,193.21,ok,B,1,46.36,ok,0.0,What is the discount on the vlogger's merchandise? | (A) 50% off | (B) 30% off | (C) 20% off | (D) 40% off
+29,0,D,C,0,135.9,ok,C,0,30.29,ok,0.0,What is the first exercise the substitute daycare teacher does with these infants? | (A) Sit-ups | (B) Push-ups | (C) Hands-up | (D) Jumping jacks
+29,1,A,B,0,153.8,ok,D,0,49.35,ok,0.0,What do these kids think of the substitute daycare teacher? | (A) They hate her | (B) They like her | (C) They adore her | (D) They don't care about her
+29,2,A,A,1,135.33,ok,A,1,53.64,ok,0.0,How do the kids feel when the substitute  daycare teacher falls into the pool? | (A) Happy | (B) Scared | (C) Worried | (D) Sad
+30,0,C,D,0,219.93,ok,D,0,132.6,ok,0.0,What vegetables are in the first burger? | (A) Peppers and lettuce | (B) Onions and peppers | (C) Onions and tomatos | (D) Tomatos and lettuce
+30,1,B,C,0,218.86,ok,A,0,56.67,ok,0.0,How many burgers does the vlogger make during the video? | (A) 24 | (B) 19 | (C) 25 | (D) 12
+30,2,C,C,1,186.07,ok,C,1,87.37,ok,0.0,What type of sauce does the label indicate on the second bottle that is closest to the view? | (A) Barbecue Sauce | (B) Ketchup | (C) Sweet chili sauce | (D) Mustard
+32,0,A,A,1,172.25,ok,A,1,64.22,ok,0.0,What color is the atmosphere of the room? | (A) Purple | (B) Green | (C) Pink | (D) Red
+32,1,B,C,0,159.64,ok,B,1,42.86,ok,0.0,What does the vlogger do after she ties her hair? | (A) Sleep again | (B) Drink water | (C) Play with her mobile phone | (D) Read a book
+32,2,B,B,1,192.21,ok,B,1,93.75,ok,0.0,What is the first thing the vlogger drops? | (A) The mobile phone | (B) The water bottle | (C) The charger | (D) The pillow

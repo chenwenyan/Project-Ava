@@ -46,6 +46,7 @@ HEADERS = {
     "ca": ["video_id", "question_id", "seconds", "answer", "gt", "status"],
 }
 CACHE_ROOT = MODE_CACHE["direct"]  # set in main() per mode
+SRC_SUBDIR = None  # e.g. "videos_gop3s": demux a re-encoded (different-GOP) source instead of the native one
 
 
 # --- keyframe segmentation -------------------------------------------------
@@ -104,16 +105,22 @@ def keyframe_get_chunk_timestamp(video, chunk_duration, chunk_overlap):
 
 
 def get_keyframe_video(video_id):
-    """Mode's VideoRepresentation: reuses default frames (symlink), own kg."""
+    """Mode's VideoRepresentation: reuses default frames (symlink), own kg.
+
+    When SRC_SUBDIR is set the frames/pixels are identical (reused), but the cached
+    config.json's source_path is redirected to the re-encoded video so keyframe
+    segmentation demuxes that file's (different-GOP) I-frames."""
     src = DEFAULT_CACHE / str(video_id)
     dst = CACHE_ROOT / str(video_id)
     dst.mkdir(parents=True, exist_ok=True)
     if not (dst / "frames").exists():
         os.symlink(src / "frames", dst / "frames")
+    cfg = json.loads((src / "config.json").read_text())
+    if SRC_SUBDIR:
+        cfg["source_path"] = cfg["source_path"].replace("/videos/", f"/{SRC_SUBDIR}/")
     if not (dst / "config.json").exists():
-        shutil.copy(src / "config.json", dst / "config.json")
-    source_path = json.loads((src / "config.json").read_text())["source_path"]
-    return VideoRepresentation(source_path, str(dst))
+        (dst / "config.json").write_text(json.dumps(cfg))
+    return VideoRepresentation(cfg["source_path"], str(dst))
 
 
 # --- resumable runner ------------------------------------------------------
@@ -210,17 +217,30 @@ def run_questions(dataset, model, video_ids, output_dir, stage):
 
 
 def main():
-    global CACHE_ROOT
+    global CACHE_ROOT, SRC_SUBDIR
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--mode", choices=["direct", "merge"], default="direct")
     parser.add_argument("--stage", choices=["graph", "sa", "ca", "all"], default="all")
     parser.add_argument("--num", type=int, default=5, help="first N long videos from 601")
     parser.add_argument("--gpus", type=int, default=1)
     parser.add_argument("--output-dir", type=Path, default=None)
+    parser.add_argument("--src-subdir", default=None,
+                        help="re-encoded source subdir (e.g. videos_gop3s); "
+                             "demux its GOP instead of the native videos/ file")
+    parser.add_argument("--cache-tag", default=None,
+                        help="suffix for an isolated cache/output (e.g. gop3s), so GOP "
+                             "variants don't collide with the native-GOP caches")
     args = parser.parse_args()
 
-    CACHE_ROOT = MODE_CACHE[args.mode]
-    output_dir = args.output_dir or MODE_OUTPUT[args.mode]
+    SRC_SUBDIR = args.src_subdir
+    if args.cache_tag:
+        CACHE_ROOT = REPO / f"AVA_cache/VideoMME_kf_{args.cache_tag}" if args.mode == "direct" \
+            else REPO / f"AVA_cache/VideoMME_kf_merge_{args.cache_tag}"
+        default_output = REPO / f"outputs/videomme_keyframe_{args.cache_tag}_{BASE_ID}_{BASE_ID + args.num - 1}"
+    else:
+        CACHE_ROOT = MODE_CACHE[args.mode]
+        default_output = MODE_OUTPUT[args.mode]
+    output_dir = args.output_dir or default_output
 
     # Install keyframe segmentation for the chosen mode.
     if args.mode == "direct":

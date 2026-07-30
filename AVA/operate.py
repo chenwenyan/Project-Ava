@@ -468,10 +468,11 @@ def generate_ca_self_consistency_result(
     self_consistency_num: int = 4,
     max_frames: int = 256,
     max_retries: int = 3,
+    num_candidates: int = 2,
 ):
     candidate_nodes = []
     for sa_node in sorted_sa_nodes:
-        if len(candidate_nodes) == 2:
+        if len(candidate_nodes) == num_candidates:
             break
         
         if not candidate_nodes:

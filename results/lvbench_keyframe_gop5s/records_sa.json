@@ -1,0 +1,542 @@
+{
+  "4:0": {
+    "video_id": 4,
+    "question_id": 0,
+    "seconds": 199.12,
+    "answer": "B",
+    "gt": "B",
+    "status": "ok",
+    "question": "What is the first word in the video?\n(A) ENT\n(B) NET\n(C) TNE\n(D) ETN"
+  },
+  "4:1": {
+    "video_id": 4,
+    "question_id": 1,
+    "seconds": 198.43,
+    "answer": "C",
+    "gt": "C",
+    "status": "ok",
+    "question": "How many birds are there flying at the beginning of the video?\n(A) 6\n(B) 4\n(C) 5\n(D) 8"
+  },
+  "4:2": {
+    "video_id": 4,
+    "question_id": 2,
+    "seconds": 170.01,
+    "answer": "D",
+    "gt": "C",
+    "status": "ok",
+    "question": "How many doors have colored lights at 00:29?\n(A) 2\n(B) 1\n(C) 3\n(D) 0"
+  },
+  "5:0": {
+    "video_id": 5,
+    "question_id": 0,
+    "seconds": 203.12,
+    "answer": "C",
+    "gt": "B",
+    "status": "ok",
+    "question": "Who gets the lollipop last?\n(A) Frankenstein\n(B) Zombie\n(C) Vampire\n(D) Dokkaebi"
+  },
+  "5:1": {
+    "video_id": 5,
+    "question_id": 1,
+    "seconds": 175.75,
+    "answer": "A",
+    "gt": "D",
+    "status": "ok",
+    "question": "Why doesn't the vampire want the lollipop?\n(A) Because he thinks it is child who eat lollipop\n(B) Because he can't eat lollipop\n(C) Because he doesn't like lollipop\n(D) Because he thinks the lollipop is dirty"
+  },
+  "5:2": {
+    "video_id": 5,
+    "question_id": 2,
+    "seconds": 201.09,
+    "answer": "B",
+    "gt": "A",
+    "status": "ok",
+    "question": "When is the school let out in the afternoon?\n(A) 2:00 pm\n(B) 3:30 pm\n(C) 2:30 pm\n(D) 3:00 pm"
+  },
+  "12:0": {
+    "video_id": 12,
+    "question_id": 0,
+    "seconds": 137.71,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "What is the yellow semi-circular tool used by black clad engineers in cars?\n(A) Wheel\n(B) Bearing\n(C) Engine\n(D) Brake caliper"
+  },
+  "12:1": {
+    "video_id": 12,
+    "question_id": 1,
+    "seconds": 197.78,
+    "answer": "D",
+    "gt": "A",
+    "status": "ok",
+    "question": "What kind of Mercedes-Benz car is this black one?\n(A) Maybach\n(B) AMG GT\n(C) C class\n(D) E class"
+  },
+  "12:2": {
+    "video_id": 12,
+    "question_id": 2,
+    "seconds": 192.38,
+    "answer": "A",
+    "gt": "A",
+    "status": "ok",
+    "question": "What happens from 04:45-05:25?\n(A) They replace the exhaust pipe of the car\n(B) They replace the tail lights of the car\n(C) They change tires on cars\n(D) They replace the brake pads on the car"
+  },
+  "14:0": {
+    "video_id": 14,
+    "question_id": 0,
+    "seconds": 165.68,
+    "answer": "C",
+    "gt": "D",
+    "status": "ok",
+    "question": "Who are the main individuals featured in this video?\n(A) Jane Mayer\n(B) James Clapper\n(C) Matt Apuzzo\n(D) Donald John Trump"
+  },
+  "14:1": {
+    "video_id": 14,
+    "question_id": 1,
+    "seconds": 138.99,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "What object is in front of the J. Edgar Hoover FBI Building sign?\n(A) A mirror\n(B) An industrial robot\n(C) A camera\n(D) A car"
+  },
+  "14:2": {
+    "video_id": 14,
+    "question_id": 2,
+    "seconds": 145.4,
+    "answer": "D",
+    "gt": "B",
+    "status": "ok",
+    "question": "What does it mean when Trump raises his hand in front of a green helicopter with United States of America written on it?\n(A) He's preparing to shake hands\n(B) It's a gesture of politeness, indicating that people can start moving around\n(C) He's pointing the way for the audience\n(D) He's waving to greet someone"
+  },
+  "15:0": {
+    "video_id": 15,
+    "question_id": 0,
+    "seconds": 163.81,
+    "answer": "A",
+    "gt": "A",
+    "status": "ok",
+    "question": "Which movie does the host parody in his first appearance?\n(A) Barbie\n(B) American Fiction\n(C) Killers of the Flower Moon\n(D) Oppenheim"
+  },
+  "15:1": {
+    "video_id": 15,
+    "question_id": 1,
+    "seconds": 177.73,
+    "answer": "A",
+    "gt": "C",
+    "status": "ok",
+    "question": "Which movie wins the most awards at the ceremony?\n(A) Barbie\n(B) Anatomy of a Fall\n(C) Oppenheim\n(D) Poor Things"
+  },
+  "15:2": {
+    "video_id": 15,
+    "question_id": 2,
+    "seconds": 151.48,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "What is the reaction of the Best Supporting Actress when she finds out she wins?\n(A) She shows indifference\n(B) She appears excited\n(C) She gives a faint smile\n(D) She sheds tears of joy"
+  },
+  "18:0": {
+    "video_id": 18,
+    "question_id": 0,
+    "seconds": 188.62,
+    "answer": "A",
+    "gt": "B",
+    "status": "ok",
+    "question": "When does the little mermaid appear for the first time?\n(A) 03:55\n(B) 03:40\n(C) 04:40\n(D) 02:40"
+  },
+  "18:1": {
+    "video_id": 18,
+    "question_id": 1,
+    "seconds": 165.05,
+    "answer": "C",
+    "gt": "A",
+    "status": "ok",
+    "question": "What happens from 17:16-17:40?\n(A) They quarrel\n(B) They kiss\n(C) They talk nicely\n(D) They hug"
+  },
+  "18:2": {
+    "video_id": 18,
+    "question_id": 2,
+    "seconds": 144.92,
+    "answer": "C",
+    "gt": "B",
+    "status": "ok",
+    "question": "What color is the prince's belt?\n(A) Pink\n(B) Red\n(C) Black\n(D) White"
+  },
+  "28:0": {
+    "video_id": 28,
+    "question_id": 0,
+    "seconds": 185.89,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "What is the highest percentage of the country's respondents who experienced anger on the day previous to the survey?\n(A) 48%\n(B) 51%\n(C) 53%\n(D) 49%"
+  },
+  "28:1": {
+    "video_id": 28,
+    "question_id": 1,
+    "seconds": 175.6,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "Which country do the travelers choose?\n(A) Isreal\n(B) Afghanistan\n(C) Palestine\n(D) Lebanon"
+  },
+  "28:2": {
+    "video_id": 28,
+    "question_id": 2,
+    "seconds": 172.31,
+    "answer": "B",
+    "gt": "B",
+    "status": "ok",
+    "question": "What is the discount on the vlogger's merchandise?\n(A) 50% off\n(B) 30% off\n(C) 20% off\n(D) 40% off"
+  },
+  "29:0": {
+    "video_id": 29,
+    "question_id": 0,
+    "seconds": 153.25,
+    "answer": "C",
+    "gt": "D",
+    "status": "ok",
+    "question": "What is the first exercise the substitute daycare teacher does with these infants?\n(A) Sit-ups\n(B) Push-ups\n(C) Hands-up\n(D) Jumping jacks"
+  },
+  "29:1": {
+    "video_id": 29,
+    "question_id": 1,
+    "seconds": 146.77,
+    "answer": "B",
+    "gt": "A",
+    "status": "ok",
+    "question": "What do these kids think of the substitute daycare teacher?\n(A) They hate her\n(B) They like her\n(C) They adore her\n(D) They don't care about her"
+  },
+  "29:2": {
+    "video_id": 29,
+    "question_id": 2,
+    "seconds": 146.35,
+    "answer": "A",
+    "gt": "A",
+    "status": "ok",
+    "question": "How do the kids feel when the substitute  daycare teacher falls into the pool?\n(A) Happy\n(B) Scared\n(C) Worried\n(D) Sad"
+  },
+  "30:0": {
+    "video_id": 30,
+    "question_id": 0,
+    "seconds": 196.29,
+    "answer": "D",
+    "gt": "C",
+    "status": "ok",
+    "question": "What vegetables are in the first burger?\n(A) Peppers and lettuce\n(B) Onions and peppers\n(C) Onions and tomatos\n(D) Tomatos and lettuce"
+  },
+  "30:1": {
+    "video_id": 30,
+    "question_id": 1,
+    "seconds": 184.0,
+    "answer": "C",
+    "gt": "B",
+    "status": "ok",
+    "question": "How many burgers does the vlogger make during the video?\n(A) 24\n(B) 19\n(C) 25\n(D) 12"
+  },
+  "30:2": {
+    "video_id": 30,
+    "question_id": 2,
+    "seconds": 165.83,
+    "answer": "B",
+    "gt": "C",
+    "status": "ok",
+    "question": "What type of sauce does the label indicate on the second bottle that is closest to the view?\n(A) Barbecue Sauce\n(B) Ketchup\n(C) Sweet chili sauce\n(D) Mustard"
+  },
+  "32:0": {
+    "video_id": 32,
+    "question_id": 0,
+    "seconds": 141.29,
+    "answer": "A",
+    "gt": "A",
+    "status": "ok",
+    "question": "What color is the atmosphere of the room?\n(A) Purple\n(B) Green\n(C) Pink\n(D) Red"
+  },
+  "32:1": {
+    "video_id": 32,
+    "question_id": 1,
+    "seconds": 161.22,
+    "answer": "B",
+    "gt": "B",
+    "status": "ok",
+    "question": "What does the vlogger do after she ties her hair?\n(A) Sleep again\n(B) Drink water\n(C) Play with her mobile phone\n(D) Read a book"
+  },
+  "32:2": {
+    "video_id": 32,
+    "question_id": 2,
+    "seconds": 158.44,
+    "answer": "B",
+    "gt": "B",
+    "status": "ok",
+    "question": "What is the first thing the vlogger drops?\n(A) The mobile phone\n(B) The water bottle\n(C) The charger\n(D) The pillow"
+  },
+  "36:0": {
+    "video_id": 36,
+    "question_id": 0,
+    "seconds": 118.45,
+    "answer": "B",
+    "gt": "C",
+    "status": "ok",
+    "question": "What happens at the beginning of the video?\n(A) The players are warming up now\n(B) Serena to serve\n(C) A player is practicing racquet\n(D) The players are waiting"
+  },
+  "36:1": {
+    "video_id": 36,
+    "question_id": 1,
+    "seconds": 119.68,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "What is the process and result of the first official ball of the first game?\n(A) Serena blocks Venus's big serve, and a wide backhand makes it 0-15\n(B) Serena pushes Venus around the court for the opening point, and a wide backspin makes it 0-15\n(C) Venus pushes Serena around the court for the opening point, and a wide backhand makes it 0-15\n(D) Serena pushes Venus around the court for the opening point, and a wide backhand makes it 0-15"
+  },
+  "36:2": {
+    "video_id": 36,
+    "question_id": 2,
+    "seconds": 125.77,
+    "answer": "A",
+    "gt": "C",
+    "status": "ok",
+    "question": "Why is the score 0-30 after the second ball?\n(A) Serena's nother backhand error takes it to 0-30\n(B) Serena's chip and charge\n(C) Venus's nother backhand error takes it to 0-30\n(D) Venus's chip and charge"
+  },
+  "55:0": {
+    "video_id": 55,
+    "question_id": 0,
+    "seconds": 224.69,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "What happens after the boy looks very down in the middle of the man and the woman?\n(A) The cat eats and the boy packs the luggage\n(B) The boy eats and the cat packs the luggage\n(C) The cat writes and the boy packs the luggage\n(D) The boy writes and the cat packs the luggage"
+  },
+  "55:1": {
+    "video_id": 55,
+    "question_id": 1,
+    "seconds": 221.87,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "Who do the boy and the cat meet on the way they first leave home?\n(A) The old man\n(B) The couple\n(C) The rabbit\n(D) The dog"
+  },
+  "55:2": {
+    "video_id": 55,
+    "question_id": 2,
+    "seconds": 164.73,
+    "answer": "D",
+    "gt": "A",
+    "status": "ok",
+    "question": "What happens after the boy and the cat meet the dog for the first time?\n(A) They clean the house\n(B) They meet the guest\n(C) They wash the dish\n(D) They eat the food"
+  },
+  "65:0": {
+    "video_id": 65,
+    "question_id": 0,
+    "seconds": 158.13,
+    "answer": "C",
+    "gt": "C",
+    "status": "ok",
+    "question": "Who is the first man in red?\n(A) Kyrie Irving\n(B) Brad Pitt\n(C) Tom Hanks\n(D) Leonardo DiCaprio"
+  },
+  "65:1": {
+    "video_id": 65,
+    "question_id": 1,
+    "seconds": 173.55,
+    "answer": "A",
+    "gt": "A",
+    "status": "ok",
+    "question": "Is the scene where individuals are seen taking photos with the Pope part fictional or real? Which sentence best describes the place this scene happens?\n(A) Fictional, from a movie\n(B) Fictional, from a documentary\n(C) Real, from live\n(D) Real, from news report"
+  },
+  "65:2": {
+    "video_id": 65,
+    "question_id": 2,
+    "seconds": 154.52,
+    "answer": "A",
+    "gt": "A",
+    "status": "ok",
+    "question": "What does the presenter do to Brad Pitt when he wins the award?\n(A) She hugs him\n(B) She gives a high five\n(C) She slaps him\n(D) She kisses him"
+  },
+  "70:0": {
+    "video_id": 70,
+    "question_id": 0,
+    "seconds": 227.11,
+    "answer": "A",
+    "gt": "A",
+    "status": "ok",
+    "question": "What type of video is this\n(A) Speech video\n(B) Documentary\n(C) Concert\n(D) News report"
+  },
+  "70:1": {
+    "video_id": 70,
+    "question_id": 1,
+    "seconds": 170.02,
+    "answer": "C",
+    "gt": "C",
+    "status": "ok",
+    "question": "What words are on the screen before the demo of Fourier Intelligence?\n(A) I am a boy\n(B) I am a train\n(C) I am a trainer\n(D) I am a robot"
+  },
+  "70:2": {
+    "video_id": 70,
+    "question_id": 2,
+    "seconds": 148.24,
+    "answer": "A",
+    "gt": "C",
+    "status": "ok",
+    "question": "What did Jensen Huang do after the end of the first promotional video?\n(A) He waved and walked off the stage\n(B) He walked off the stage\n(C) He walked onto the stage while waving\n(D) He bowed to the audience"
+  },
+  "72:0": {
+    "video_id": 72,
+    "question_id": 0,
+    "seconds": 129.81,
+    "answer": "C",
+    "gt": "B",
+    "status": "ok",
+    "question": "What is this video about?\n(A) Signing ceremony\n(B) Vocal concert\n(C) Dance competition\n(D) Fashion show"
+  },
+  "72:1": {
+    "video_id": 72,
+    "question_id": 1,
+    "seconds": 133.85,
+    "answer": "A",
+    "gt": "C",
+    "status": "ok",
+    "question": "What instrument does the first person who wears black outfit play?\n(A) Guitar\n(B) Drum kit\n(C) Bass\n(D) Piano"
+  },
+  "72:2": {
+    "video_id": 72,
+    "question_id": 2,
+    "seconds": 166.27,
+    "answer": "C",
+    "gt": "B",
+    "status": "ok",
+    "question": "How many dancers are there when Britney Spears first stands on the ground?\n(A) 6\n(B) 2\n(C) 4\n(D) 3"
+  },
+  "76:0": {
+    "video_id": 76,
+    "question_id": 0,
+    "seconds": 212.87,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "What is the destination of the trip?\n(A) Romania\n(B) Croatia\n(C) Albania\n(D) Moldova"
+  },
+  "76:1": {
+    "video_id": 76,
+    "question_id": 1,
+    "seconds": 208.69,
+    "answer": "D",
+    "gt": "C",
+    "status": "ok",
+    "question": "Where does the conversation take place from 02:48-02:53?\n(A) The train\n(B) The subway\n(C) The plane\n(D) The bus"
+  },
+  "76:2": {
+    "video_id": 76,
+    "question_id": 2,
+    "seconds": 195.62,
+    "answer": "C",
+    "gt": "D",
+    "status": "ok",
+    "question": "After exiting the airport, what does the vlogger team do before seeking directions from an elder?\n(A) They visit different places, including a theater, the national museum, and a restaurant\n(B) They eat at different places, including a restaurant, a local shop, and a gelato shop\n(C) They eat at different places, including a restaurant, a local shop, and a coffee shop\n(D) They visit different places, including a theater, the national museum, and an abandoned amusement park"
+  },
+  "78:0": {
+    "video_id": 78,
+    "question_id": 0,
+    "seconds": 165.69,
+    "answer": "A",
+    "gt": "B",
+    "status": "ok",
+    "question": "The vlogger decides to ___ after arriving at the hotel and sitting on the orange chair.\n(A) Communicate with others\n(B) Take the escalator\n(C) Ask for directions\n(D) Take the elevator"
+  },
+  "78:1": {
+    "video_id": 78,
+    "question_id": 1,
+    "seconds": 173.2,
+    "answer": "A",
+    "gt": "A",
+    "status": "ok",
+    "question": "What is in the top shelf of cabinet that the vlogger opens right after he checks the cooler for the first time?\n(A) Biscuits\n(B) Liquor\n(C) Cups\n(D) Chocolates"
+  },
+  "78:2": {
+    "video_id": 78,
+    "question_id": 2,
+    "seconds": 148.08,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "What color is the hair dryer?\n(A) Black\n(B) White\n(C) Red\n(D) Blue"
+  },
+  "82:0": {
+    "video_id": 82,
+    "question_id": 0,
+    "seconds": 170.89,
+    "answer": "C",
+    "gt": "C",
+    "status": "ok",
+    "question": "Which liquid is poured at the beginning of the video?\n(A) Water\n(B) Tea\n(C) Milk\n(D) Coffee"
+  },
+  "82:1": {
+    "video_id": 82,
+    "question_id": 1,
+    "seconds": 158.86,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "What does the the shop assistant do after assembling the ice cream machine?\n(A) Pour four glasses of water\n(B) Open four glasses of water\n(C) Pour four boxes of milk\n(D) Open four boxes of milk"
+  },
+  "82:2": {
+    "video_id": 82,
+    "question_id": 2,
+    "seconds": 187.23,
+    "answer": "C",
+    "gt": "C",
+    "status": "ok",
+    "question": "What color shovels are used to scrape the liquid in the container?\n(A) Orange and red\n(B) Red and white\n(C) Orange and yellow\n(D) Red and yellow"
+  },
+  "87:0": {
+    "video_id": 87,
+    "question_id": 0,
+    "seconds": 172.42,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "Summarize the scoring in the first game of the first set?\n(A) The Swiss team scores the first 3 points at first, but in the end the American team won the game with five consecutive points\n(B) The American team scores the first 3 points at first, but in the end the  Swiss team won the game with five consecutive points\n(C) The Swiss team scores the first point first, then the American team scores two points, but in the end the Swiss team won the game with three consecutive points\n(D) The American team scores the first point first, then the Swiss team scores two points, but in the end the American team won the game with three consecutive points"
+  },
+  "87:1": {
+    "video_id": 87,
+    "question_id": 1,
+    "seconds": 210.57,
+    "answer": "C",
+    "gt": "C",
+    "status": "ok",
+    "question": "Why does Team USA lose the first point of the second game of the first set?\n(A) They are spiked\n(B) They fail to hit the ball over the net\n(C) They hit the ball out of bounds\n(D) They fail to catch the ball"
+  },
+  "87:2": {
+    "video_id": 87,
+    "question_id": 2,
+    "seconds": 179.32,
+    "answer": "A",
+    "gt": "D",
+    "status": "ok",
+    "question": "Summarize the scoring in the second game of the first set?\n(A) The American team scores one point first, and the Swiss team then tie it, but then the American team score consecutively to win the game\n(B) The Swiss team score consecutively to win the game with American get no point\n(C) The American team score consecutively to win the game with Swiss get no point\n(D) The Swiss team scores one point first, and the American team then tie it, but then the Swiss team score consecutively to win the game"
+  },
+  "95:0": {
+    "video_id": 95,
+    "question_id": 0,
+    "seconds": 128.04,
+    "answer": "C",
+    "gt": "C",
+    "status": "ok",
+    "question": "Where is the scene shown in the video?\n(A) Swimming Pool\n(B) Basketball court\n(C) Sports Field\n(D) Tennis Court"
+  },
+  "95:1": {
+    "video_id": 95,
+    "question_id": 1,
+    "seconds": 218.85,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "What competetion is going on based on the text in the video?\n(A) Men's 100000M\n(B) Men's 1000M\n(C) Men's 100M\n(D) Men's 10000M"
+  },
+  "95:2": {
+    "video_id": 95,
+    "question_id": 2,
+    "seconds": 185.04,
+    "answer": "C",
+    "gt": "C",
+    "status": "ok",
+    "question": "Which match could this probably be?\n(A) Tokyo 2020 Olympics\n(B) 2023 World Athletics Championships\n(C) London 2012 Olympics\n(D) 2017 World Championships in Athletics"
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "4:0": {
+    "video_id": 4,
+    "question_id": 0,
+    "seconds": 218.36,
+    "answer": "B",
+    "gt": "B",
+    "status": "ok",
+    "question": "What is the first word in the video?\n(A) ENT\n(B) NET\n(C) TNE\n(D) ETN"
+  },
+  "4:1": {
+    "video_id": 4,
+    "question_id": 1,
+    "seconds": 205.35,
+    "answer": "B",
+    "gt": "C",
+    "status": "ok",
+    "question": "How many birds are there flying at the beginning of the video?\n(A) 6\n(B) 4\n(C) 5\n(D) 8"
+  },
+  "4:2": {
+    "video_id": 4,
+    "question_id": 2,
+    "seconds": 176.15,
+    "answer": "D",
+    "gt": "C",
+    "status": "ok",
+    "question": "How many doors have colored lights at 00:29?\n(A) 2\n(B) 1\n(C) 3\n(D) 0"
+  },
+  "5:0": {
+    "video_id": 5,
+    "question_id": 0,
+    "seconds": 209.59,
+    "answer": "C",
+    "gt": "B",
+    "status": "ok",
+    "question": "Who gets the lollipop last?\n(A) Frankenstein\n(B) Zombie\n(C) Vampire\n(D) Dokkaebi"
+  },
+  "5:1": {
+    "video_id": 5,
+    "question_id": 1,
+    "seconds": 152.97,
+    "answer": "A",
+    "gt": "D",
+    "status": "ok",
+    "question": "Why doesn't the vampire want the lollipop?\n(A) Because he thinks it is child who eat lollipop\n(B) Because he can't eat lollipop\n(C) Because he doesn't like lollipop\n(D) Because he thinks the lollipop is dirty"
+  },
+  "5:2": {
+    "video_id": 5,
+    "question_id": 2,
+    "seconds": 193.96,
+    "answer": "C",
+    "gt": "A",
+    "status": "ok",
+    "question": "When is the school let out in the afternoon?\n(A) 2:00 pm\n(B) 3:30 pm\n(C) 2:30 pm\n(D) 3:00 pm"
+  },
+  "12:0": {
+    "video_id": 12,
+    "question_id": 0,
+    "seconds": 154.84,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "What is the yellow semi-circular tool used by black clad engineers in cars?\n(A) Wheel\n(B) Bearing\n(C) Engine\n(D) Brake caliper"
+  },
+  "12:1": {
+    "video_id": 12,
+    "question_id": 1,
+    "seconds": 204.47,
+    "answer": "A",
+    "gt": "A",
+    "status": "ok",
+    "question": "What kind of Mercedes-Benz car is this black one?\n(A) Maybach\n(B) AMG GT\n(C) C class\n(D) E class"
+  },
+  "12:2": {
+    "video_id": 12,
+    "question_id": 2,
+    "seconds": 166.9,
+    "answer": "A",
+    "gt": "A",
+    "status": "ok",
+    "question": "What happens from 04:45-05:25?\n(A) They replace the exhaust pipe of the car\n(B) They replace the tail lights of the car\n(C) They change tires on cars\n(D) They replace the brake pads on the car"
+  },
+  "14:0": {
+    "video_id": 14,
+    "question_id": 0,
+    "seconds": 153.21,
+    "answer": "B",
+    "gt": "D",
+    "status": "ok",
+    "question": "Who are the main individuals featured in this video?\n(A) Jane Mayer\n(B) James Clapper\n(C) Matt Apuzzo\n(D) Donald John Trump"
+  },
+  "14:1": {
+    "video_id": 14,
+    "question_id": 1,
+    "seconds": 163.4,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "What object is in front of the J. Edgar Hoover FBI Building sign?\n(A) A mirror\n(B) An industrial robot\n(C) A camera\n(D) A car"
+  },
+  "14:2": {
+    "video_id": 14,
+    "question_id": 2,
+    "seconds": 182.09,
+    "answer": "B",
+    "gt": "B",
+    "status": "ok",
+    "question": "What does it mean when Trump raises his hand in front of a green helicopter with United States of America written on it?\n(A) He's preparing to shake hands\n(B) It's a gesture of politeness, indicating that people can start moving around\n(C) He's pointing the way for the audience\n(D) He's waving to greet someone"
+  },
+  "15:0": {
+    "video_id": 15,
+    "question_id": 0,
+    "seconds": 146.63,
+    "answer": "A",
+    "gt": "A",
+    "status": "ok",
+    "question": "Which movie does the host parody in his first appearance?\n(A) Barbie\n(B) American Fiction\n(C) Killers of the Flower Moon\n(D) Oppenheim"
+  },
+  "15:1": {
+    "video_id": 15,
+    "question_id": 1,
+    "seconds": 155.22,
+    "answer": "A",
+    "gt": "C",
+    "status": "ok",
+    "question": "Which movie wins the most awards at the ceremony?\n(A) Barbie\n(B) Anatomy of a Fall\n(C) Oppenheim\n(D) Poor Things"
+  },
+  "15:2": {
+    "video_id": 15,
+    "question_id": 2,
+    "seconds": 125.98,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "What is the reaction of the Best Supporting Actress when she finds out she wins?\n(A) She shows indifference\n(B) She appears excited\n(C) She gives a faint smile\n(D) She sheds tears of joy"
+  },
+  "18:0": {
+    "video_id": 18,
+    "question_id": 0,
+    "seconds": 162.99,
+    "answer": "B",
+    "gt": "B",
+    "status": "ok",
+    "question": "When does the little mermaid appear for the first time?\n(A) 03:55\n(B) 03:40\n(C) 04:40\n(D) 02:40"
+  },
+  "18:1": {
+    "video_id": 18,
+    "question_id": 1,
+    "seconds": 193.82,
+    "answer": "C",
+    "gt": "A",
+    "status": "ok",
+    "question": "What happens from 17:16-17:40?\n(A) They quarrel\n(B) They kiss\n(C) They talk nicely\n(D) They hug"
+  },
+  "18:2": {
+    "video_id": 18,
+    "question_id": 2,
+    "seconds": 146.41,
+    "answer": "C",
+    "gt": "B",
+    "status": "ok",
+    "question": "What color is the prince's belt?\n(A) Pink\n(B) Red\n(C) Black\n(D) White"
+  },
+  "28:0": {
+    "video_id": 28,
+    "question_id": 0,
+    "seconds": 158.47,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "What is the highest percentage of the country's respondents who experienced anger on the day previous to the survey?\n(A) 48%\n(B) 51%\n(C) 53%\n(D) 49%"
+  },
+  "28:1": {
+    "video_id": 28,
+    "question_id": 1,
+    "seconds": 203.86,
+    "answer": "D",
+    "gt": "D",
+    "status": "ok",
+    "question": "Which country do the travelers choose?\n(A) Isreal\n(B) Afghanistan\n(C) Palestine\n(D) Lebanon"
+  },
+  "28:2": {
+    "video_id": 28,
+    "question_id": 2,
+    "seconds": 193.21,
+    "answer": "B",
+    "gt": "B",
+    "status": "ok",
+    "question": "What is the discount on the vlogger's merchandise?\n(A) 50% off\n(B) 30% off\n(C) 20% off\n(D) 40% off"
+  },
+  "29:0": {
+    "video_id": 29,
+    "question_id": 0,
+    "seconds": 135.9,
+    "answer": "C",
+    "gt": "D",
+    "status": "ok",
+    "question": "What is the first exercise the substitute daycare teacher does with these infants?\n(A) Sit-ups\n(B) Push-ups\n(C) Hands-up\n(D) Jumping jacks"
+  },
+  "29:1": {
+    "video_id": 29,
+    "question_id": 1,
+    "seconds": 153.8,
+    "answer": "B",
+    "gt": "A",
+    "status": "ok",
+    "question": "What do these kids think of the substitute daycare teacher?\n(A) They hate her\n(B) They like her\n(C) They adore her\n(D) They don't care about her"
+  },
+  "29:2": {
+    "video_id": 29,
+    "question_id": 2,
+    "seconds": 135.33,
+    "answer": "A",
+    "gt": "A",
+    "status": "ok",
+    "question": "How do the kids feel when the substitute  daycare teacher falls into the pool?\n(A) Happy\n(B) Scared\n(C) Worried\n(D) Sad"
+  },
+  "30:0": {
+    "video_id": 30,
+    "question_id": 0,
+    "seconds": 219.93,
+    "answer": "D",
+    "gt": "C",
+    "status": "ok",
+    "question": "What vegetables are in the first burger?\n(A) Peppers and lettuce\n(B) Onions and peppers\n(C) Onions and tomatos\n(D) Tomatos and lettuce"
+  },
+  "30:1": {
+    "video_id": 30,
+    "question_id": 1,
+    "seconds": 218.86,
+    "answer": "C",
+    "gt": "B",
+    "status": "ok",
+    "question": "How many burgers does the vlogger make during the video?\n(A) 24\n(B) 19\n(C) 25\n(D) 12"
+  },
+  "30:2": {
+    "video_id": 30,
+    "question_id": 2,
+    "seconds": 186.07,
+    "answer": "C",
+    "gt": "C",
+    "status": "ok",
+    "question": "What type of sauce does the label indicate on the second bottle that is closest to the view?\n(A) Barbecue Sauce\n(B) Ketchup\n(C) Sweet chili sauce\n(D) Mustard"
+  },
+  "32:0": {
+    "video_id": 32,
+    "question_id": 0,
+    "seconds": 172.25,
+    "answer": "A",
+    "gt": "A",
+    "status": "ok",
+    "question": "What color is the atmosphere of the room?\n(A) Purple\n(B) Green\n(C) Pink\n(D) Red"
+  },
+  "32:1": {
+    "video_id": 32,
+    "question_id": 1,
+    "seconds": 159.64,
+    "answer": "C",
+    "gt": "B",
+    "status": "ok",
+    "question": "What does the vlogger do after she ties her hair?\n(A) Sleep again\n(B) Drink water\n(C) Play with her mobile phone\n(D) Read a book"
+  },
+  "32:2": {
+    "video_id": 32,
+    "question_id": 2,
+    "seconds": 192.21,
+    "answer": "B",
+    "gt": "B",
+    "status": "ok",
+    "question": "What is the first thing the vlogger drops?\n(A) The mobile phone\n(B) The water bottle\n(C) The charger\n(D) The pillow"
+  }
+}
