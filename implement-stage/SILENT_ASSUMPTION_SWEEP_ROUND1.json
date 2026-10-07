@@ -1,0 +1,51 @@
+{
+  "undeclared": [
+    {
+      "site": "scripts/vit_token_cache.py:111",
+      "decision": "Token error is a single relative L2 norm over main embeddings and all DeepStack outputs, normalized by the computed output's total squared norm, with a 1e-12 denominator floor.",
+      "why_it_matters": "A-010 declares a relative error bound without defining its aggregation or reference. The implemented metric permits individual tokens or layers to exceed the configured tolerance when the aggregate passes.",
+      "class": "semantic"
+    },
+    {
+      "site": "scripts/vit_cache_install.py:26",
+      "decision": "Both motion and residual thresholds default to zero.",
+      "why_it_matters": "The ledger specifies the comparisons and the token-error default, but not these defaults. Merely supplying a sidecar leaves positive motion or residual candidates ineligible.",
+      "class": "semantic"
+    },
+    {
+      "site": "scripts/vit_token_cache.py:170,204",
+      "decision": "Anchor comparison occurs only on a cache miss and only if the nominated anchor already exists in the same store. An exact record saved before its anchor becomes available is not reconsidered on later hits.",
+      "why_it_matters": "Anchor availability and access order determine which candidates become aliases. A-003/A-006/A-010 do not declare this one-time eligibility policy.",
+      "class": "semantic"
+    },
+    {
+      "site": "scripts/vit_token_cache.py:208",
+      "decision": "An accepted anchor replaces the freshly computed output in the validating request itself.",
+      "why_it_matters": "With nonzero tolerance, approximation affects the first request as well as subsequent requests. A-010 explicitly describes subsequent reuse but leaves the validating request's returned output unspecified.",
+      "class": "semantic"
+    },
+    {
+      "site": "scripts/vit_cache_bootstrap/sitecustomize.py:5; scripts/vit_cache_install.py:15",
+      "decision": "The spawned engine enables the hook only when AVA_VIT_TOKEN_CACHE_DIR is explicitly present.",
+      "why_it_matters": "The installer provides a default cache directory, but the bootstrap does not use that default to activate caching. The effective environment requirement is absent from the specification and ledger.",
+      "class": "interface"
+    },
+    {
+      "site": "scripts/vit_token_cache.py:49,60,173,193",
+      "decision": "Counters reset for each store instance; hits and misses count visual segments, while vit_calls counts batched original-forward invocations. The metrics file contains the current instance's snapshot.",
+      "why_it_matters": "The persistent records survive restarts, but their counters do not. These units and lifetime determine how the exposed counters can substantiate cross-query reuse.",
+      "class": "interface"
+    }
+  ],
+  "stale_rows": [
+    {
+      "row": "A-007",
+      "site": "scripts/vit_cache_install.py:9; scripts/vit_token_cache.py:149; scripts/test_vit_token_cache.py:128",
+      "stated_choice": "Unsupported versions fail closed.",
+      "actual_behavior": "Production installation attempts the imported Qwen3-VL implementation and checks selected input/output structures during execution. The explicit forward-signature assertion exists only in the integration test; production has no version compatibility gate.",
+      "why_it_matters": "The row promises version rejection beyond the structural checks implemented."
+    }
+  ],
+  "semantic_undeclared": 4,
+  "verdict": "gaps"
+}

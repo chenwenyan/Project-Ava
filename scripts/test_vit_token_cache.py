@@ -129,6 +129,18 @@ def check_codec():
         guarded.forward(model, ToyVision.forward, changed, boundary, rotation, pos)
         assert guarded.aliases == 0
 
+        approximate = VisionOutputStore(root / "approximate", "toy",
+                                        codec_sidecar=guarded_sidecar,
+                                        token_error_tolerance=0.6)
+        approximate.forward(model, ToyVision.forward, anchor, boundary, rotation, pos)
+        fresh_main, _ = approximate.forward(model, ToyVision.forward, changed,
+                                            boundary, rotation, pos)
+        reused_main, _ = approximate.forward(model, ToyVision.forward, changed,
+                                             boundary, rotation, pos)
+        assert approximate.aliases == 1
+        assert not torch.equal(fresh_main, reused_main)
+        assert torch.equal(reused_main, torch.ones_like(reused_main))
+
 
 def check_integration():
     import inspect

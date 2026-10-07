@@ -207,7 +207,6 @@ class VisionOutputStore:
                     error = self._relative_error(record, anchor)
                     if error <= self.token_error_tolerance:
                         self._write(entry["path"], {"alias": anchor_path.name, "relative_error": error})
-                        record = anchor
                         self.aliases += 1
                     else:
                         self._write(entry["path"], record)

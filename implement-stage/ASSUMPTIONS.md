@@ -9,10 +9,16 @@
 | A-004 | Model version identity | Use a cache namespace naming the checkpoint/preprocessor build; the launcher defaults to the current Qwen3-VL model and permits an explicit override. | semantic | default |
 | A-005 | What counts as a cross-query hit | The server's persistent feature-store hit for identical processed visual input; current GOP-level trace is insufficient to label exact-frame hits. | semantic | default |
 | A-006 | Codec alias rule | Low motion/residual scores nominate an anchor; the first access still runs ViT and compares the complete output tuple to the anchor. A default zero token-error tolerance accepts only equal outputs. | semantic | default |
-| A-007 | Engine compatibility | Target installed qwen35 LMDeploy PyTorch Qwen3-VL implementation; unsupported versions fail closed. | interface | default |
+| A-007 | Engine compatibility | Target installed qwen35 LMDeploy PyTorch Qwen3-VL implementation; runtime structural mismatches raise errors. There is no general version compatibility gate. | interface | default |
 | A-008 | How codec signals reach a JPEG-based ViT server | A JSON sidecar maps hashes of preprocessed patch inputs to an anchor patch hash and numeric motion/residual scores. Missing sidecar values disable codec aliasing. | interface | default |
 | A-009 | What the two adjustable thresholds mean | Both `motion <= mv_threshold` and `residual <= residual_threshold` must hold before considering anchor reuse. Values and aggregation are declared by the sidecar producer. | semantic | default |
 | A-010 | How approximate anchor reuse is controlled | A first-pass ViT comparison must also meet a configurable relative post-ViT token-error bound; default zero permits only exact equality. Subsequent queries reuse the accepted anchor. | semantic | default |
+| A-011 | Token-error aggregation | Compare the whole main-plus-DeepStack tuple using relative L2 error, with computed output energy in the denominator and a `1e-12` floor. | semantic | sweep |
+| A-012 | Motion and residual threshold defaults | Both thresholds default to zero; a sidecar with positive scores needs explicit threshold settings. | semantic | sweep |
+| A-013 | When anchor aliasing is considered | Only on a candidate cache miss when its anchor is already stored. An exact record written before its anchor is available is not revisited for aliasing. | semantic | sweep |
+| A-014 | Validating request output | The first access returns its freshly computed post-ViT tuple. If accepted, only subsequent accesses read the stored anchor alias. | semantic | sweep |
+| A-015 | Spawned engine activation | The launcher places a startup bootstrap on spawned engines' Python path. Cache installation does not require an explicit cache-directory environment variable; absent one it uses `AVA_cache/vit_tokens`. | interface | sweep |
+| A-016 | Counter units and lifetime | Hits/misses count visual segments; `vit_calls` counts original batched ViT invocations. Counters reset per server engine instance, while cache records persist. | interface | sweep |
 
 ## Notes
 
