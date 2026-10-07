@@ -44,6 +44,9 @@ def main():
     assert first["metrics"]["misses"] >= 1, observations
     assert second["metrics"]["hits"] > first["metrics"]["hits"], observations
     assert second["metrics"]["vit_calls"] == first["metrics"]["vit_calls"], observations
+    if second["metrics"].get("storage") == "tiered":
+        assert second["metrics"]["gpu_hits"] >= 1, observations
+        assert second["metrics"]["gpu_bytes"] <= second["metrics"]["gpu_budget_bytes"]
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps({"observations": observations}, indent=2))
     print(f"Warm request reused {second['metrics']['hits'] - first['metrics']['hits']} visual segment(s)")

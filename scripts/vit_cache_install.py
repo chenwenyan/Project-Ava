@@ -20,12 +20,21 @@ def install_cache_hook():
     def forward(self, *args, **kwargs):
         vision_class = type(self.visual)
         if not getattr(vision_class, "_ava_vit_cache_installed", False):
+            storage_mode = os.environ.get("AVA_VIT_STORAGE", "disk")
+            gpu_budget_bytes = int(float(os.environ.get("AVA_VIT_GPU_CACHE_GIB", "20")) * 2**30)
+            host_budget_gib = os.environ.get("AVA_VIT_HOST_CACHE_GIB")
+            host_budget_bytes = (int(float(host_budget_gib) * 2**30)
+                                 if host_budget_gib is not None else None)
+            host_reserve_bytes = int(float(os.environ.get("AVA_VIT_HOST_RESERVE_GIB", "32")) * 2**30)
             install_into(
                 vision_class, cache_dir, namespace, metrics_path=metrics_path,
                 codec_sidecar=Path(sidecar) if sidecar else None,
                 mv_threshold=float(os.environ.get("AVA_VIT_MV_THRESHOLD", "0")),
                 residual_threshold=float(os.environ.get("AVA_VIT_RESIDUAL_THRESHOLD", "0")),
                 token_error_tolerance=float(os.environ.get("AVA_VIT_TOKEN_ERROR_TOLERANCE", "0")),
+                storage_mode=storage_mode, gpu_budget_bytes=gpu_budget_bytes,
+                host_budget_bytes=host_budget_bytes,
+                host_reserve_bytes=host_reserve_bytes,
             )
         return original_forward(self, *args, **kwargs)
 

@@ -19,6 +19,10 @@
 | A-014 | Validating request output | The first access returns its freshly computed post-ViT tuple. If accepted, only subsequent accesses read the stored anchor alias. | semantic | sweep |
 | A-015 | Spawned engine activation | The launcher places a startup bootstrap on spawned engines' Python path. Cache installation does not require an explicit cache-directory environment variable; absent one it uses `AVA_cache/vit_tokens`. | interface | sweep |
 | A-016 | Counter units and lifetime | Hits/misses count visual segments; `vit_calls` counts original batched ViT invocations. Counters reset per server engine instance, while cache records persist. | interface | sweep |
+| A-017 | Meaning of the 20 GB GPU allocation | A hard 20 GiB budget for cached post-ViT tensor payloads, excluding model weights, temporary activations, allocator metadata and unrelated KV cache. The GPU tier uses LRU eviction. | semantic | user/default |
+| A-018 | Meaning of the remaining host tier | Each complete post-ViT record has one hot resident tier: GPU up to 20 GiB, then host RAM under a pressure-aware cap. Host overflow spills to disk; disk copies may remain after promotion. | semantic | user/default |
+| A-019 | Latency comparison for the tiered implementation | Repeat VideoMME-Long 601–620's 60 CA queries with the existing `kf3sig_a07_t07` graphs and SA outputs. Run no-reuse and tiered arms sequentially on the same GPU to avoid simultaneous host-memory pressure. Speedup is median no-reuse CA seconds divided by median tiered CA seconds. | semantic | default |
+| A-020 | Host-memory capacity policy | At server startup cap cached host tensor payload at the smaller of 24 GiB and half of `MemAvailable` above a 32 GiB reserve; during execution spill host LRU entries whenever the cap would be exceeded or current `MemAvailable` falls below the reserve. | semantic | default |
 
 ## Notes
 

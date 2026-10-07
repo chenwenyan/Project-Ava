@@ -156,12 +156,60 @@ def check_integration():
     assert "lmdeploy" in result.stdout
 
 
+def check_tiered():
+    from scripts.vit_token_cache import TieredVisionOutputStore
+
+    class ToyVision:
+        spatial_merge_size = 2
+        calls = 0
+
+        def forward(self, hidden_states, cu_seqlens, rotary_pos_emb, pos_embeds):
+            self.calls += 1
+            main = hidden_states[:, :1].reshape(-1, 4, 1).mean(1)
+            return main, [main * 2]
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    with TemporaryDirectory() as directory:
+        model = ToyVision()
+        store = TieredVisionOutputStore(Path(directory), "toy-tiered", gpu_budget_bytes=8)
+        one = torch.ones(4, 2, device=device)
+        two = one * 2
+        zero = torch.zeros_like(one)
+        ends = torch.tensor([4], device=device)
+        args = (ends, (zero, zero), zero)
+        first = store.forward(model, ToyVision.forward, one, *args)
+        store.forward(model, ToyVision.forward, two, *args)
+        assert store.gpu_bytes <= 8 and store.gpu_evictions == 1
+        second = store.forward(model, ToyVision.forward, one, *args)
+        assert model.calls == 2 and store.host_hits == 1
+        assert torch.equal(first[0], second[0])
+        store.forward(model, ToyVision.forward, one, *args)
+        assert store.gpu_hits == 1 and store.gpu_bytes <= 8
+        assert not list(Path(directory).rglob("*.pt"))
+    with TemporaryDirectory() as directory:
+        model = ToyVision()
+        store = TieredVisionOutputStore(Path(directory), "toy-spill", gpu_budget_bytes=8,
+                                        host_budget_bytes=8, host_reserve_bytes=0)
+        one = torch.ones(4, 2, device=device)
+        zero = torch.zeros_like(one)
+        ends = torch.tensor([4], device=device)
+        args = (ends, (zero, zero), zero)
+        original = store.forward(model, ToyVision.forward, one, *args)
+        store.forward(model, ToyVision.forward, one * 2, *args)
+        store.forward(model, ToyVision.forward, one * 3, *args)
+        assert store.gpu_bytes <= 8 and store.host_bytes <= 8
+        assert store.disk_writes == 1 and len(list(Path(directory).rglob("*.pt"))) == 1
+        restored = store.forward(model, ToyVision.forward, one, *args)
+        assert torch.equal(original[0], restored[0]) and store.disk_hits == 1
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--spine", action="store_true")
     parser.add_argument("--cache", action="store_true")
     parser.add_argument("--integration", action="store_true")
     parser.add_argument("--codec", action="store_true")
+    parser.add_argument("--tiered", action="store_true")
     args = parser.parse_args()
     if args.spine:
         check_spine()
@@ -171,6 +219,8 @@ def main():
         check_codec()
     elif args.integration:
         check_integration()
+    elif args.tiered:
+        check_tiered()
     else:
         raise SystemExit("Only --spine is implemented at F0")
 

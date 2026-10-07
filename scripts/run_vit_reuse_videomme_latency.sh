@@ -9,7 +9,25 @@ MODEL=Qwen/Qwen3-VL-8B-Instruct
 METHOD=kf3sig_a07_t07
 PORT_OFF=23830
 PORT_ON=23831
-OUT="$REPO/results/vit_reuse_videomme_601_620"
+STORAGE=${VIT_REUSE_STORAGE:-disk}
+case "$STORAGE" in
+  disk)
+    OUT="$REPO/results/vit_reuse_videomme_601_620"
+    TAG_OFF=vitreuse_off
+    TAG_ON=vitreuse_on
+    STEM=videomme_vit_reuse
+    ;;
+  tiered)
+    OUT="$REPO/results/vit_reuse_tiered_videomme_601_620"
+    TAG_OFF=vitreuse_tiered_off
+    TAG_ON=vitreuse_tiered_on
+    STEM=videomme_vit_reuse_tiered
+    ;;
+  *)
+    echo "Unsupported VIT_REUSE_STORAGE: $STORAGE" >&2
+    exit 2
+    ;;
+esac
 
 mkdir -p "$OUT"
 cd "$REPO"
@@ -49,6 +67,8 @@ server_off=$!
 export AVA_VIT_TOKEN_CACHE_DIR="$OUT/token_cache"
 export AVA_VIT_TOKEN_CACHE_NAMESPACE="Qwen3-VL-8B-Instruct-videomme-601-620"
 export AVA_VIT_TOKEN_CACHE_METRICS="$OUT/cache_metrics.json"
+export AVA_VIT_STORAGE="$STORAGE"
+export AVA_VIT_GPU_CACHE_GIB=20
 CUDA_VISIBLE_DEVICES=1 "$VL_PY" -m scripts.serve_vit_token_cache serve api_server "$MODEL" \
   --backend pytorch --server-name 127.0.0.1 --server-port "$PORT_ON" \
   --model-name "$MODEL" --tp 1 --session-len 131072 --max-batch-size 4 \
@@ -80,12 +100,12 @@ done
 
 CUDA_VISIBLE_DEVICES=0 "$AVA_PY" scripts/run_qwen35_experiment.py \
   --dataset videomme --method "$METHOD" --stage ca --start-id 601 --num 20 \
-  --run-tag vitreuse_off --base-url "http://127.0.0.1:${PORT_OFF}/v1" \
+  --run-tag "$TAG_OFF" --base-url "http://127.0.0.1:${PORT_OFF}/v1" \
   --model "$MODEL" >"$OUT/eval_off.log" 2>&1 &
 eval_off=$!
 CUDA_VISIBLE_DEVICES=1 "$AVA_PY" scripts/run_qwen35_experiment.py \
   --dataset videomme --method "$METHOD" --stage ca --start-id 601 --num 20 \
-  --run-tag vitreuse_on --base-url "http://127.0.0.1:${PORT_ON}/v1" \
+  --run-tag "$TAG_ON" --base-url "http://127.0.0.1:${PORT_ON}/v1" \
   --model "$MODEL" >"$OUT/eval_on.log" 2>&1 &
 eval_on=$!
 
@@ -99,9 +119,9 @@ if [[ "$status" != 0 ]]; then
 fi
 
 "$AVA_PY" results/plot_scripts/plot_vit_reuse_videomme_latency.py \
-  --off results/qwen3_videomme_${METHOD}_vitreuse_off_601_620/records_ca.json \
-  --on results/qwen3_videomme_${METHOD}_vitreuse_on_601_620/records_ca.json \
+  --off "results/qwen3_videomme_${METHOD}_${TAG_OFF}_601_620/records_ca.json" \
+  --on "results/qwen3_videomme_${METHOD}_${TAG_ON}_601_620/records_ca.json" \
   --metrics "$OUT/cache_metrics.json" \
-  --csv results/csv/videomme_vit_reuse_latency_601_620.csv \
+  --csv "results/csv/${STEM}_latency_601_620.csv" \
   --summary "$OUT/summary.json" \
-  --pdf results/pdf/videomme_vit_reuse_latency_speedup.pdf
+  --pdf "results/pdf/${STEM}_latency_speedup.pdf"

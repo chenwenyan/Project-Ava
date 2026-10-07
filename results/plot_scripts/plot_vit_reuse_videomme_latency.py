@@ -58,6 +58,7 @@ def main():
     summary = {
         "cohort": "VideoMME-Long 601-620, 60 CA questions",
         "method": "kf3sig_a07_t07",
+        "cache_storage": metrics.get("storage", "disk"),
         "n_questions": len(rows),
         "median_no_reuse_seconds": medians[0],
         "median_reuse_seconds": medians[1],
