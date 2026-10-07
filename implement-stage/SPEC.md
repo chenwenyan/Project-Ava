@@ -8,4 +8,4 @@ Inputs: current JPEG image requests, Qwen3-VL visual model, optional codec side 
 
 Success command: a local cache test must show identical reconstructed tensors and zero additional ViT calls on a repeat; then a Qwen3-VL server smoke run must show a warm-request hit and unchanged answer path.
 
-Scope: exact reuse first. A zero-motion/zero-residual codec indication is a candidate, never a sufficient equivalence proof for post-ViT tensors. Approximate keyframe aliasing and new CA sampling are excluded from this first implementation.
+Scope: exact repeated-input reuse first. Low codec motion/residual scores nominate a keyframe anchor, never prove equivalent post-ViT tensors. A first-pass complete-output comparison is mandatory before aliasing; an optional nonzero token-error tolerance permits measured approximate aliases. New CA sampling and a real codec-residual extractor are excluded.

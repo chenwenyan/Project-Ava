@@ -1,26 +1,24 @@
-"""Launch LMDeploy's regular CLI with a Qwen3-VL ViT interception hook."""
+"""Launch LMDeploy's API server with persistent post-ViT reuse enabled."""
 
 import os
 from pathlib import Path
 
-from scripts.vit_token_cache import install_into
+from scripts.vit_cache_install import install_cache_hook
 
 
 def main():
     from lmdeploy.cli import run
-    from lmdeploy.pytorch.models.qwen3_vl import Qwen3VLVisionModel
 
-    cache_dir = Path(os.environ.get("AVA_VIT_TOKEN_CACHE_DIR", "AVA_cache/vit_tokens"))
-    namespace = os.environ.get("AVA_VIT_TOKEN_CACHE_NAMESPACE", "Qwen3-VL-8B-Instruct")
-    metrics_path = Path(os.environ.get("AVA_VIT_TOKEN_CACHE_METRICS", str(cache_dir / "metrics.json")))
-    sidecar = os.environ.get("AVA_VIT_CODEC_SIDECAR")
-    install_into(
-        Qwen3VLVisionModel, cache_dir, namespace, metrics_path=metrics_path,
-        codec_sidecar=Path(sidecar) if sidecar else None,
-        mv_threshold=float(os.environ.get("AVA_VIT_MV_THRESHOLD", "0")),
-        residual_threshold=float(os.environ.get("AVA_VIT_RESIDUAL_THRESHOLD", "0")),
-        token_error_tolerance=float(os.environ.get("AVA_VIT_TOKEN_ERROR_TOLERANCE", "0")),
-    )
+    # The API server spawns a separate PyTorch engine interpreter. sitecustomize
+    # installs the model hook there before LMDeploy constructs the model.
+    repo_root = Path(__file__).resolve().parents[1]
+    bootstrap = Path(__file__).resolve().parent / "vit_cache_bootstrap"
+    paths = [str(bootstrap), str(repo_root)]
+    old_path = os.environ.get("PYTHONPATH")
+    if old_path:
+        paths.append(old_path)
+    os.environ["PYTHONPATH"] = os.pathsep.join(paths)
+    install_cache_hook()
     return run()
 
 
